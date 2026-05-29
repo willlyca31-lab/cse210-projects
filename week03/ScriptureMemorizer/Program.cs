@@ -4,7 +4,7 @@ using ScriptureMemorizer;
 using Microsoft.VisualBasic;
 class Program
 {
-    static void Main(Strings[] args)
+    private static void Main(Strings[] args)
     {
         Reference reference = new Reference("Psalm", 119, 11);
 
