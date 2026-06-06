@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 public class BreathingActivity : Activity
 {
@@ -7,8 +8,7 @@ public class BreathingActivity : Activity
         _name = "Breathing Activity";
 
         _description =
-            "This activity will help you relax by guiding you through slow breathing. " +
-            "Clear your mind and focus on your breathing.";
+            "This activity will help you relax by guiding you through slow breathing.";
     }
 
     public void Run()
@@ -19,18 +19,31 @@ public class BreathingActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-            Console.WriteLine();
-            Console.Write("Breathe in... ");
-            ShowCountDown(4);
+            ExpandBreath();
 
             Console.WriteLine();
 
-            Console.Write("Now breathe out... ");
-            ShowCountDown(6);
+            Console.WriteLine("Breathe Out");
 
-            Console.WriteLine();
+            ShowCountDown(5);
+
+            Console.Clear();
         }
 
         DisplayEndingMessage();
+    }
+
+    public void ExpandBreath()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Breathe In");
+
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine(new string('*', i * 2));
+
+            Thread.Sleep(500);
+        }
     }
 }
