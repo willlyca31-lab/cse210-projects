@@ -1,3 +1,4 @@
+namespace ExerciseTracking;
 using System;
 
 public abstract class Activity
